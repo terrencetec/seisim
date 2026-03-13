@@ -61,7 +61,7 @@ class Seisim:
         # Simulate isolation motion before control kicks in
         for i in range(n_history):
             u = g_actual[i]
-            motion[i] = self.system.step(u)
+            motion[i] = self.system.step(u)[0, 0]
 
         # Simulate isolation motion after control kics in
         for i in range(n_history, len(t), n_control):
@@ -75,7 +75,7 @@ class Seisim:
             # Forward in time
             y_running = np.zeros_like(u)
             for j in range(len(u)):
-                y_running[j] = self.system.step(u[j])
+                y_running[j] = self.system.step(u[j])[0, 0]
 
             # Put segment into final motion array
             # Separate boundary cases

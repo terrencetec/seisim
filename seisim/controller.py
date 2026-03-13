@@ -11,6 +11,9 @@ class Controller:
         """Output"""
         return self.get_actuation(measurement)
 
+class MCRHC(Controller):
+    """Minimizing coherence rolling horizon control"""
+    pass
 
 class MPCFF(Controller):
     """Model Predictive Feedforward Control"""

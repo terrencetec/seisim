@@ -36,6 +36,11 @@ class System:
         ----------
         u : array
             Input vector.
+        
+        Return
+        ------
+        y : array
+            Output vector.
         """
         
         u = np.reshape(u, (self.ninputs, 1))
@@ -47,6 +52,5 @@ class System:
         x_ = A @ x + B @ u
         y = C @ x + D @ u
         self.x = x_
-
         return y
 
